@@ -2,7 +2,7 @@ package tdd.coding.gym;
 
 import java.util.*;
 
-public class GOLEvolver implements IEvolver {
+public class GOLEvolver implements IGOLEvolver {
 
     public Set<Cell> allNeighbours = new TreeSet();
     public SortedMap<Cell, Integer> mappingOfCellsToLiveNeighbours = new TreeMap();
@@ -11,7 +11,7 @@ public class GOLEvolver implements IEvolver {
         locateNeighbours(from);
         mapNeighbours(from);
 
-        Set<Cell> nextGeneration = new HashSet<>();
+        Set<Cell> nextGeneration = new TreeSet<>();
         from.forEach(cell -> {
                     int n = mappingOfCellsToLiveNeighbours.get(cell);
                     if (n==2 || n==3)
